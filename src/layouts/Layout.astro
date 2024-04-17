@@ -5,27 +5,51 @@ import { ViewTransitions } from "astro:transitions";
 import Header from "~/components/astro/Header.astro";
 import Scripts from "~/components/astro/Scripts.astro";
 import Footer from "~/components/astro/Footer.astro";
+import { SEO } from "astro-seo";
 
 interface Props {
     title: string;
+    ogTitle?: string;
 }
 
-const { title } = Astro.props;
+const {
+    title,
+    ogTitle = "Boost your career with Career Journal, the leading career journaling platform designed for professionals seeking advancement",
+} = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="description" content="Astro description" />
+        <meta name="description" content="Career Journal" />
         <meta name="viewport" content="width=device-width" />
 
         <link rel="shortcut icon" href={favIcon} />
 
-        <!-- <link rel="sitemap" href={getAsset('/sitemap-index.xml')} /> -->
+        <link rel="sitemap" href="/sitemap-index.xml" />
 
         <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
+
+        <SEO
+            title={title}
+            description="Boost your career with Career Journal, the leading career journaling platform designed for professionals seeking advancement. Get reminders to document achievements with our smart notification system, use expert-crafted journaling templates, and create promotion-ready documents with high-quality PDF exports. Ideal for performance reviews, year end reviews, promotion documents, and resume updates. Start your path to career success today with our simple, transparent monthly or annual plans."
+            openGraph={{
+                basic: {
+                    title: ogTitle,
+                    type: "website",
+                    image: "https://thecareerjournal.com/career-journal-logo.png",
+                },
+            }}
+            twitter={{
+                creator: "@arthurlrodolfo",
+                card: "summary",
+                title: ogTitle,
+                description: "Career Journal",
+                image: "https://thecareerjournal.com/career-journal-logo.png",
+                site: "@arthurlrodolfo",
+            }}
+        />
 
         <ViewTransitions fallback="swap" />
     </head>
