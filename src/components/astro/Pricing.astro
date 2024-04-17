@@ -1,0 +1,44 @@
+<section
+    id="pricing"
+    class="flex flex-col items-center gap-4 self-center text-center md:w-1/2 dark:text-white">
+    <h1 class="text-4xl font-bold md:text-7xl">Simple Pricing</h1>
+
+    <p>
+        Unlock access to expert-designed journaling, personalized reminders, and
+        professional export templates that will propel your career forward 🚀
+    </p>
+
+    <label class="mt-4 inline-flex cursor-pointer items-center gap-2">
+        <span>Monthly</span>
+
+        <input type="checkbox" value="" class="peer sr-only" id="plan" />
+        <div
+            class="relative -z-[1] h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-titan-300 peer-checked:after:translate-x-full peer-checked:after:border-white dark:border-gray-600 dark:bg-gray-700 dark:peer-checked:bg-gigas-500">
+        </div>
+
+        <div class="flex items-center gap-2">
+            <span>Yearly</span>
+            <span
+                class="rounded bg-green-100 p-1 text-xs font-bold text-green-700 dark:bg-green-900 dark:text-green-300"
+                >Save 40%</span
+            >
+        </div>
+    </label>
+
+    <div
+        class="flex flex-col gap-10 rounded border-2 border-titan-300 p-4 shadow-lg shadow-titan-300 dark:border-gigas-500 dark:shadow-gigas-500">
+        <div class="flex flex-col gap-1">
+            <div>
+                <span id="plan-price" class="text-3xl font-bold">$8.00</span>
+                <span class="text-sm">/month</span>
+            </div>
+
+            <span id="plan-billed" class="text-sm">Billed monthly</span>
+        </div>
+
+        <div
+            class="w-64 rounded-lg bg-titan-300 p-2 text-center font-bold motion-safe:hover:animate-wiggle dark:bg-gigas-900">
+            <a href="https://app.thecareerjournal.com/signup">Get Started</a>
+        </div>
+    </div>
+</section>

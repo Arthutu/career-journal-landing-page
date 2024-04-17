@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+import logo from "~/assets/images/career-journal-logo.svg";
+---
+
+<span
+    class="flex items-center gap-1 text-xl font-bold md:text-xl dark:text-white">
+    <Image
+        src={logo}
+        alt="Career Journal Logo"
+        width="30"
+        height="30"
+        class="dark:invert dark:filter"
+        loading="eager"
+    />
+    Career Journal
+</span>

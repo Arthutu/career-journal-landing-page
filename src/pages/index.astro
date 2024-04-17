@@ -1,0 +1,16 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "~/components/astro/Hero.astro";
+import { Features } from "~/components/react/Features";
+import Pricing from "~/components/astro/Pricing.astro";
+---
+
+<Layout title="Career Journal">
+    <main class="my-20 flex flex-col gap-40 px-3">
+        <Hero />
+
+        <Features client:load />
+
+        <Pricing />
+    </main>
+</Layout>

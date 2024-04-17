@@ -1,0 +1,76 @@
+---
+import Logo from "./Logo.astro";
+import Hamburger from "./Hamburger.astro";
+
+const currentPath = Astro.url.pathname;
+---
+
+<header
+    id="header"
+    class="text-default sticky top-0 mx-auto w-full bg-white px-3 shadow-sm md:flex md:items-center md:justify-between md:px-10 md:py-2 dark:border-b-2 dark:border-gigas-950 dark:bg-slate-950 dark:text-white">
+    <div class="flex justify-between">
+        <a class="flex w-60 items-center" href="/">
+            <Logo />
+        </a>
+
+        <div class="md:hidden">
+            <Hamburger />
+        </div>
+    </div>
+
+    <nav
+        id="nav"
+        aria-label="Main navigation"
+        class="absolute left-0 z-40 w-full items-center bg-white pb-4 pt-2 opacity-0 shadow-sm transition-all md:relative md:w-40 md:p-0 md:opacity-100 md:shadow-none dark:bg-slate-950">
+        <ul class="flex flex-col items-center gap-4 md:hidden">
+            <li
+                class="w-64 rounded-lg bg-titan-300 p-2 text-center font-bold motion-safe:hover:animate-wiggle dark:bg-gigas-900">
+                <a href="https://app.thecareerjournal.com/signup">Get Started</a
+                >
+            </li>
+
+            <li
+                class="font-bold hover:text-titan-500 hover:underline dark:hover:text-gigas-500">
+                <a href="https://app.thecareerjournal.com/login">Log in</a>
+            </li>
+
+            <li>
+                <a
+                    class:list={[
+                        "hover:text-titan-500 dark:text-white dark:hover:text-gigas-500",
+                        {
+                            "text-titan-500 underline dark:text-gigas-500":
+                                currentPath == "/pricing",
+                        },
+                    ]}
+                    href="/pricing">
+                    Pricing
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="hidden md:flex md:items-center md:gap-4">
+        <a
+            class:list={[
+                "hover:text-titan-500 dark:text-white dark:hover:text-gigas-500",
+                {
+                    "text-titan-500 underline dark:text-gigas-500":
+                        currentPath == "/pricing",
+                },
+            ]}
+            href="/pricing">
+            Pricing
+        </a>
+
+        <a
+            class="font-bold hover:text-titan-500 hover:underline dark:hover:text-gigas-500"
+            href="https://app.thecareerjournal.com/login">Log in</a
+        >
+
+        <div
+            class="w-36 rounded-lg bg-titan-300 p-2 text-center font-bold motion-safe:hover:animate-wiggle dark:bg-gigas-900">
+            <a href="https://app.thecareerjournal.com/signup">Get Started</a>
+        </div>
+    </div>
+</header>

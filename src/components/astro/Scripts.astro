@@ -1,0 +1,98 @@
+<script is:inline>
+    function attachEvent(selector, event, fn) {
+        const matches =
+            typeof selector === "string"
+                ? document.querySelectorAll(selector)
+                : selector;
+        if (matches && matches.length) {
+            matches.forEach((elem) => {
+                elem.addEventListener(event, (e) => fn(e, elem), false);
+            });
+        }
+    }
+
+    const onLoad = function () {
+        attachEvent("#nav", "click", function () {
+            document
+                .querySelector("[data-toggle-menu]")
+                ?.classList.remove("expanded");
+            document.getElementById("header")?.classList.remove("expanded");
+            document.querySelector("#nav")?.classList.add("opacity-0");
+        });
+
+        attachEvent("[data-toggle-menu]", "click", function (_, elem) {
+            elem.classList.toggle("expanded");
+            document.getElementById("header")?.classList.toggle("expanded");
+            document.querySelector("#nav")?.classList.toggle("opacity-0");
+        });
+
+        attachEvent("[data-aw-social-share]", "click", function (_, elem) {
+            const network = elem.getAttribute("data-aw-social-share");
+            const url = encodeURIComponent(elem.getAttribute("data-aw-url"));
+            const text = encodeURIComponent(elem.getAttribute("data-aw-text"));
+
+            let href;
+            switch (network) {
+                case "facebook":
+                    href = `https://www.facebook.com/sharer.php?u=${url}`;
+                    break;
+                case "twitter":
+                    href = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+                    break;
+                case "linkedin":
+                    href = `https://www.linkedin.com/shareArticle?mini=true&url=${url}&title=${text}`;
+                    break;
+                case "whatsapp":
+                    href = `https://wa.me/?text=${text}%20${url}`;
+                    break;
+                case "mail":
+                    href = `mailto:?subject=%22${text}%22&body=${text}%20${url}`;
+                    break;
+
+                default:
+                    return;
+            }
+
+            const newlink = document.createElement("a");
+            newlink.target = "_blank";
+            newlink.href = href;
+            newlink.click();
+        });
+    };
+
+    const onPageShow = function () {
+        document.documentElement.classList.add("motion-safe:scroll-smooth");
+        const elem = document.querySelector("[data-toggle-menu]");
+
+        if (elem) {
+            elem.classList.remove("expanded");
+        }
+
+        document.getElementById("header")?.classList.remove("expanded");
+        document.querySelector("#header nav")?.classList.add("opacity-0");
+
+        const checkbox = window.document.getElementById("plan");
+
+        checkbox.addEventListener("change", () => {
+            const planPrice = window.document.getElementById("plan-price");
+
+            const planBilled = window.document.getElementById("plan-billed");
+
+            if (checkbox.checked) {
+                planPrice.textContent = "$5.00";
+                planBilled.textContent = "Billed annually";
+            } else {
+                planPrice.textContent = "$8.00";
+                planBilled.textContent = "Billed monthly";
+            }
+        });
+    };
+
+    window.onload = onLoad;
+    window.onpageshow = onPageShow;
+
+    document.addEventListener("astro:after-swap", () => {
+        onLoad();
+        onPageShow();
+    });
+</script>

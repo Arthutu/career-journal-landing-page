@@ -1,0 +1,76 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const terms = [
+    {
+        title: "Introduction",
+        content:
+            "By using Career Journal you confirm your acceptance of, and agree to be bound by, these terms of service.",
+    },
+    {
+        title: "Agreement to Terms and Conditions",
+        content:
+            "This Agreement takes effect on the date on which you first use the Career Journal application.",
+    },
+    {
+        title: "Using Our Services",
+        content:
+            "You must follow any policies made available to you within the services. Do not misuse our services. You may use our services only as permitted by law.",
+    },
+    {
+        title: "Your Account",
+        content:
+            "You need an account to use our services. Keep your password confidential and manage your account settings responsibly.",
+    },
+    {
+        title: "Privacy",
+        content:
+            "Your privacy is important to us. Our Privacy Policy explains how we collect, use, and protect your personal data.",
+    },
+    {
+        title: "Content",
+        content:
+            "You retain ownership of any intellectual property rights that you hold in the content you create on our platform. When you upload or otherwise submit content to our platform, you give Career Journal a worldwide license to use, host, store, reproduce, modify, create derivative works, communicate, publish, publicly perform, publicly display and distribute such content.",
+    },
+    {
+        title: "Modifications and Termination",
+        content:
+            "We may modify or terminate our services or your access to them at any time and for any reason, without notice.",
+    },
+    {
+        title: "Disclaimers and Limitations of Liability",
+        content:
+            "The Career Journal does not give any warranty, guarantee or other term as to the quality, fitness for purpose or otherwise of the software. Career Journal shall not be liable to you by reason of any representation (unless fraudulent), or any implied warranty, condition or other term, or any duty at common law, for any loss of profit or any indirect, special or consequential loss, damage, costs, expenses or other claims (whether caused by Career Journal's negligence or the negligence of its servants or agents or otherwise) which arise out of or in connection with the provision of any goods or services by Career Journal. Career Journal shall not be liable or deemed to be in breach of contract by reason of any delay in performing, or failure to perform, any of its obligations if the delay or failure was due to any cause beyond its reasonable control. Notwithstanding contrary clauses in this Agreement, in the event that Career Journal are deemed liable to you for breach of this Agreement, you agree that Career Journal's liability is limited to the amount actually paid by you for your services or software, which amount calculated in reliance upon this clause. You hereby release Career Journal from any and all obligations, liabilities and claims in excess of this limitation.",
+    },
+    {
+        title: "General",
+        content:
+            "We may modify these terms or any additional terms that apply to a service without notice. You are responsible for looking at the terms regularly.",
+    },
+    {
+        title: "Refund",
+        content:
+            "Subscriptions to Career Journal are recurring and you will be automatically billed once subscribed until you choose to cancel. You can cancel at any time by logging into your Career Journal account. In most cases, payments for Career Journal subscriptions are not refundable. If you believe your case warrants a refund due to a bug or error in our product/service, we request that email us at arthurrodolfo81@gmail.com with a demonstration of the issue. This policy allows us to address and resolve any potential errors, ensuring that our products/services remain at the highest standard.",
+    },
+];
+---
+
+<Layout title="Terms of Service | Career Journal">
+    <section
+        class="flex flex-col items-center gap-10 self-center md:w-1/2 dark:text-white">
+        <h1 class="text-4xl font-bold md:text-7xl">Terms of Service</h1>
+
+        <ol class="flex flex-col gap-10">
+            {
+                terms.map(({ title, content }, idx) => (
+                    <li>
+                        <h2 class="text-lg font-bold dark:text-white">
+                            {idx + 1}.{title}
+                        </h2>
+                        <p>{content}</p>
+                    </li>
+                ))
+            }
+        </ol>
+    </section>
+</Layout>

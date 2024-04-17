@@ -1,0 +1,11 @@
+[data-toggle-menu] path {
+    @apply transition;
+}
+
+[data-toggle-menu].expanded g > path:first-child {
+    @apply translate-x-[-3px] translate-y-[15px] -rotate-45;
+}
+
+[data-toggle-menu].expanded g > path:last-child {
+    @apply translate-x-[14px] translate-y-[-8px] rotate-45;
+}
