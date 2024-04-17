@@ -1,0 +1,23 @@
+---
+import Layout from "~/layouts/Layout.astro";
+---
+
+<Layout title="Not found | Career Journal">
+    <section
+        class="flex flex-col items-center gap-4 text-center dark:text-white">
+        <span class="sr-only">Error</span>
+        <span class="font-bold">404</span>
+
+        <p class="text-3xl">Sorry, we couldn't find this page.</p>
+
+        <p class="text-muted text-lg">
+            But dont worry, you can find plenty of other things on our homepage.
+        </p>
+
+        <a
+            href="/"
+            class="w-64 rounded-lg bg-titan-300 p-2 text-center font-bold dark:bg-gigas-900"
+            >Back to homepage</a
+        >
+    </section>
+</Layout>
