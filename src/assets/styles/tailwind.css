@@ -9,3 +9,11 @@
 [data-toggle-menu].expanded g > path:last-child {
     @apply translate-x-[14px] translate-y-[-8px] rotate-45;
 }
+
+@font-face {
+    font-family: "Inter";
+    font-weight: 100 900;
+    font-display: swap;
+    font-style: normal;
+    src: url("/fonts/inter-roman-latin-var.woff2") format("woff2");
+}

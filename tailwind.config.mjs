@@ -3,11 +3,12 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 export default {
-    content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+    content: ["./src/**/*.{astro,ts,tsx}"],
     theme: {
         extend: {
             fontFamily: {
                 marker: ["Caveat Variable", ...defaultTheme.fontFamily.sans],
+                sans: ["Inter", ...defaultTheme.fontFamily.sans],
             },
             keyframes: {
                 wiggle: {
@@ -59,9 +60,6 @@ export default {
                     950: "#272244",
                 },
             },
-        },
-        fontFamily: {
-            sans: ["Inter", ...defaultTheme.fontFamily.sans],
         },
     },
     plugins: [],
