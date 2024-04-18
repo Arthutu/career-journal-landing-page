@@ -1,6 +1,11 @@
 ---
 import { Image } from "astro:assets";
 import logo from "~/assets/images/career-journal-logo.svg";
+
+interface Props {
+    loading?: "lazy" | "eager";
+}
+const { loading = "lazy" } = Astro.props;
 ---
 
 <span
@@ -11,7 +16,7 @@ import logo from "~/assets/images/career-journal-logo.svg";
         width="30"
         height="30"
         class="dark:invert dark:filter"
-        loading="eager"
+        loading={loading}
     />
     Career Journal
 </span>

@@ -10,7 +10,7 @@ const currentPath = Astro.url.pathname;
     class="text-default sticky top-0 mx-auto w-full bg-white px-3 shadow-sm md:flex md:items-center md:justify-between md:px-10 md:py-2 dark:border-b-2 dark:border-gigas-950 dark:bg-slate-950 dark:text-white">
     <div class="flex justify-between">
         <a class="flex w-60 items-center" href="/">
-            <Logo />
+            <Logo loading="eager" />
         </a>
 
         <div class="md:hidden">
@@ -24,26 +24,34 @@ const currentPath = Astro.url.pathname;
         class="absolute left-0 z-40 w-full items-center bg-white pb-4 pt-2 opacity-0 shadow-sm transition-all md:relative md:w-40 md:p-0 md:opacity-100 md:shadow-none dark:bg-slate-950">
         <ul class="flex flex-col items-center gap-4 md:hidden">
             <li
-                class="w-64 rounded-lg bg-titan-300 p-2 text-center font-bold motion-safe:hover:animate-wiggle dark:bg-gigas-900">
-                <a href="https://app.thecareerjournal.com/signup">Get Started</a
+                class="dark:bg-gigas-90 w-64 rounded-lg bg-titan-300 p-2 text-center font-bold motion-safe:hover:animate-wiggle">
+                <a
+                    data-get-started-header
+                    href="https://app.thecareerjournal.com/signup"
+                    >Get Started</a
                 >
-            </li>
-
-            <li
-                class="font-bold hover:text-titan-500 hover:underline dark:hover:text-gigas-500">
-                <a href="https://app.thecareerjournal.com/login">Log in</a>
             </li>
 
             <li>
                 <a
+                    data-login-header
+                    href="https://app.thecareerjournal.com/login"
+                    class="font-bold hover:text-titan-500 hover:underline dark:hover:text-gigas-500"
+                    >Log in</a
+                >
+            </li>
+
+            <li>
+                <a
+                    href="/pricing"
+                    data-pricing-header
                     class:list={[
                         "hover:text-titan-500 dark:text-white dark:hover:text-gigas-500",
                         {
                             "text-titan-500 underline dark:text-gigas-500":
                                 currentPath == "/pricing",
                         },
-                    ]}
-                    href="/pricing">
+                    ]}>
                     Pricing
                 </a>
             </li>
@@ -52,25 +60,30 @@ const currentPath = Astro.url.pathname;
 
     <div class="hidden md:flex md:items-center md:gap-4">
         <a
+            data-pricing-header
+            href="/pricing"
             class:list={[
                 "hover:text-titan-500 dark:text-white dark:hover:text-gigas-500",
                 {
                     "text-titan-500 underline dark:text-gigas-500":
                         currentPath == "/pricing",
                 },
-            ]}
-            href="/pricing">
+            ]}>
             Pricing
         </a>
 
         <a
+            data-login-header
+            href="https://app.thecareerjournal.com/login"
             class="font-bold hover:text-titan-500 hover:underline dark:hover:text-gigas-500"
-            href="https://app.thecareerjournal.com/login">Log in</a
+            >Log in</a
         >
 
-        <div
-            class="w-36 rounded-lg bg-titan-300 p-2 text-center font-bold motion-safe:hover:animate-wiggle dark:bg-gigas-900">
-            <a href="https://app.thecareerjournal.com/signup">Get Started</a>
-        </div>
+        <a
+            data-get-started-header
+            href="https://app.thecareerjournal.com/signup"
+            class="w-36 rounded-lg bg-titan-300 p-2 text-center font-bold motion-safe:hover:animate-wiggle dark:bg-gigas-900"
+            >Get Started</a
+        >
     </div>
 </header>
