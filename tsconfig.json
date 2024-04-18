@@ -1,15 +1,10 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "strictNullChecks": true,
-    "allowJs": true,
-    "baseUrl": "/Users/arthurrodolfo/personal/career-journal-landing-page",
-    "paths": {
-      "~/*": [
-        "src/*"
-      ]
-    },
-    "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  }
+    "extends": "astro/tsconfigs/strict",
+    "compilerOptions": {
+        "strictNullChecks": true,
+        "allowJs": true,
+        "baseUrl": "/Users/arthurrodolfo/personal/career-journal-landing-page",
+        "jsx": "react-jsx",
+        "jsxImportSource": "react"
+    }
 }
