@@ -1,7 +1,6 @@
 import "@fontsource-variable/caveat";
 
 import { motion, useScroll } from "framer-motion";
-import { useRef } from "react";
 
 const Feature = ({ title, subtitle }: { title: string; subtitle: string }) => {
     return (
@@ -15,8 +14,6 @@ const Feature = ({ title, subtitle }: { title: string; subtitle: string }) => {
 };
 
 export const Features = () => {
-    const ref = useRef(null);
-
     const { scrollYProgress } = useScroll();
 
     return (
